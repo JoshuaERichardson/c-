@@ -1,0 +1,11 @@
+/home/mole/Desktop/code_dojo/c_sharp/puzzles/obj/Debug/netcoreapp3.0/puzzles.csprojAssemblyReference.cache
+/home/mole/Desktop/code_dojo/c_sharp/puzzles/obj/Debug/netcoreapp3.0/puzzles.AssemblyInfoInputs.cache
+/home/mole/Desktop/code_dojo/c_sharp/puzzles/obj/Debug/netcoreapp3.0/puzzles.AssemblyInfo.cs
+/home/mole/Desktop/code_dojo/c_sharp/puzzles/bin/Debug/netcoreapp3.0/puzzles
+/home/mole/Desktop/code_dojo/c_sharp/puzzles/bin/Debug/netcoreapp3.0/puzzles.deps.json
+/home/mole/Desktop/code_dojo/c_sharp/puzzles/bin/Debug/netcoreapp3.0/puzzles.runtimeconfig.json
+/home/mole/Desktop/code_dojo/c_sharp/puzzles/bin/Debug/netcoreapp3.0/puzzles.runtimeconfig.dev.json
+/home/mole/Desktop/code_dojo/c_sharp/puzzles/bin/Debug/netcoreapp3.0/puzzles.dll
+/home/mole/Desktop/code_dojo/c_sharp/puzzles/bin/Debug/netcoreapp3.0/puzzles.pdb
+/home/mole/Desktop/code_dojo/c_sharp/puzzles/obj/Debug/netcoreapp3.0/puzzles.dll
+/home/mole/Desktop/code_dojo/c_sharp/puzzles/obj/Debug/netcoreapp3.0/puzzles.pdb

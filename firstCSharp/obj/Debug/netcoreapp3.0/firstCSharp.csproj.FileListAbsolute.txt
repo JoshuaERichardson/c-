@@ -1,0 +1,11 @@
+/home/mole/Desktop/code_dojo/c_sharp/firstCSharp/obj/Debug/netcoreapp3.0/firstCSharp.csprojAssemblyReference.cache
+/home/mole/Desktop/code_dojo/c_sharp/firstCSharp/obj/Debug/netcoreapp3.0/firstCSharp.AssemblyInfoInputs.cache
+/home/mole/Desktop/code_dojo/c_sharp/firstCSharp/obj/Debug/netcoreapp3.0/firstCSharp.AssemblyInfo.cs
+/home/mole/Desktop/code_dojo/c_sharp/firstCSharp/bin/Debug/netcoreapp3.0/firstCSharp
+/home/mole/Desktop/code_dojo/c_sharp/firstCSharp/bin/Debug/netcoreapp3.0/firstCSharp.deps.json
+/home/mole/Desktop/code_dojo/c_sharp/firstCSharp/bin/Debug/netcoreapp3.0/firstCSharp.runtimeconfig.json
+/home/mole/Desktop/code_dojo/c_sharp/firstCSharp/bin/Debug/netcoreapp3.0/firstCSharp.runtimeconfig.dev.json
+/home/mole/Desktop/code_dojo/c_sharp/firstCSharp/bin/Debug/netcoreapp3.0/firstCSharp.dll
+/home/mole/Desktop/code_dojo/c_sharp/firstCSharp/bin/Debug/netcoreapp3.0/firstCSharp.pdb
+/home/mole/Desktop/code_dojo/c_sharp/firstCSharp/obj/Debug/netcoreapp3.0/firstCSharp.dll
+/home/mole/Desktop/code_dojo/c_sharp/firstCSharp/obj/Debug/netcoreapp3.0/firstCSharp.pdb
