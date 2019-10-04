@@ -1,0 +1,82 @@
+HOLY C# MVC ONESTOP SHOP BATMAN
+
+New Project:
+1.	ckdir and cd into desired folder
+2.	$ dotnet new web --no-https
+3.	services.AddMvc();  //add this line in startup.cs under ConfigureServices
+4.	app.UseMvc();   //add this line, replacing the app.run lines of code
+
+Controllers:
+1.	New folder "Controllers" in root
+2.	New file "WhateverController.cs" in Controllers
+3.	In file similar to:
+    using Microsoft.AspNetCore.Mvc;
+
+    namespace YourNamespace.Controllers     //be sure to use your own project's namespace!
+    {
+        public class HelloController : Controller
+        {
+            //for each route this controller is to handle:
+            [HttpGet]       //type of request
+            [Route("")]     //associated route string (exclude the leading /)
+            public string Index()
+            {
+                return "Hello World from HelloController!";
+            }
+        }
+    }
+
+
+
+Render HTML:
+1.	New folder in root "Views"
+2.	New folder in Views "Whatever"
+3.	New file in Whatever "Eiachteemmell.cshtml"
+4.	example Get request:
+
+	[HttpGet("")]
+        public ViewResult Index()
+        {
+            return View();
+	}
+
+
+
+Use Static Files:
+1.	add "app.UseStaticFiles();" above app.UseMvc() in Startup.cs
+2.	New folder in root "wwwroot"
+3.	New Folder in wwwroot "css"
+4.	New file in css "style.css"
+5.	In .cshtml use as "~/" in relation to your wwwroot
+
+
+Submitting Forms:
+1.	in Your Controller.cs:
+	[HttpPost]
+	[Route("method")]
+	public IActionResult Method(string TextField, int NumberField)
+	{
+	    // Do something with form input
+	}
+	
+MVC Templates:
+1.	dotnet new mvc --no-https
+2.	Remove the following lines from your Startup.cs file
+	
+	services.Configure<CookiePolicyOptions>(options =>
+	{
+		// This lambda determines whether user consent for non-essential cookies is needed for a given request.
+		options.CheckConsentNeeded = context => true;
+		options.MinimumSameSitePolicy = SameSiteMode.None;
+	});
+	&&&&&&&&&&&
+	app.UseHttpsRedirection();
+	&&&&&&&&&&
+	app.UseCookiePolicy();
+
+3.	Remove the following line from your _Laout.cs file:
+
+	<partial name="_CookieConsentPartial"></partial>    
+
+
+
