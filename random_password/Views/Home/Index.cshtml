@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+<h1>Random Passcode (Passcode @ViewBag.finalString )</h1>
+
+<div class="boxme">
+    <h3>PLACEHOLDER</h3>
+</div>
+<div class="boxme">
+    <form asp-action="NewRoute" asp-asp-controller="Home" method="POST">
+        <input type="Submit" Value="Generate new password">
+    </form>
+    
+</div>
+<h3>You've generated random passwords @ViewBag.NewVar times!</h3>
