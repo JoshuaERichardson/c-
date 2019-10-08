@@ -28,3 +28,4 @@
 /home/mole/Desktop/code_dojo/c_sharp/validating_form_submission/obj/Debug/netcoreapp2.2/validating_form_submission.dll
 /home/mole/Desktop/code_dojo/c_sharp/validating_form_submission/obj/Debug/netcoreapp2.2/validating_form_submission.pdb
 /home/mole/Desktop/code_dojo/c_sharp/validating_form_submission/obj/Debug/netcoreapp2.2/validating_form_submission.csproj.CopyComplete
+/home/mole/Desktop/code_dojo/c_sharp/validating_form_submission/obj/Debug/netcoreapp2.2/Razor/Views/Home/Success.g.cshtml.cs

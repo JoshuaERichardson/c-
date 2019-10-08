@@ -15,15 +15,18 @@ namespace validating_form_submission.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        [HttpPost("/User")]
+        public IActionResult Index(User response)
         {
-            return View();
+            if(ModelState.IsValid)
+            {
+                return Redirect("success");
+            }
+            else
+            {
+                return Redirect("/");
+            }
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
     }
 }
