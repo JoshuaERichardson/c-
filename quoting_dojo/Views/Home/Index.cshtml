@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+<h1>Welcome to Quoting Dojo</h1>
+@model Quotes
+<form asp-action="ProcessForm" asp-controller="Home" method="POST">
+    <p class="form">
+        <span asp-validation-for="Name"></span>
+            <label asp-for="Name"></label>
+            <input asp-for="Name">
+    </p>
+    <p class="form">    
+        <span asp-validation-for="Quote"></span>
+            <label asp-for="Quote"></label>
+            <input asp-type="text">
+    </p>
+    <p class="form">
+        <input value="Add Quote" type="submit">
+    </p>
+</form>
+<form action="/Quotes">
+    <input type="submit" value="See Quotes">
+</form>
