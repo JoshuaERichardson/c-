@@ -1,0 +1,35 @@
+<a href="/">Home</a>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+ @using crudelicious.Models
+ @model Dish
+<h1>Edit @ViewBag.RetrievedDish.DishName </h1>
+<form asp-action="ProcessEditDish" asp-controller="Home" method="post">
+    <p>
+        <label asp-for="ChefName"></label>
+        <input asp-for="ChefName" value=@ViewBag.RetrievedDish.ChefName>
+        <span asp-validation-for="ChefName"></span>
+    </p>
+    <p>
+        <label asp-for="DishName"></label>
+        <input asp-for="DishName" value=@ViewBag.RetrievedDish.DishName>
+        <span asp-validation-for="DishName"></span>
+    </p>
+    <p>
+        <label asp-for="Calories"></label>
+        <input asp-for="Calories" value=@ViewBag.RetrievedDish.Calories>
+        <span asp-validation-for="Calories"></span>
+    </p>
+    <p>
+        <label asp-for="Tastiness"></label>
+        <select asp-for="Tastiness" value=@ViewBag.RetrievedDish.Tastiness>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <span asp-validation-for="Tastiness"></span>
+    </p>
+    <input type="submit" value="Edit Dish"
+
+</form>

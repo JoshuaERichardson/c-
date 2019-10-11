@@ -1,0 +1,35 @@
+New Project:
+1)	mkdir NAMEOFPROJECT
+2)	dotnet new mvc --no-https
+3)	dotnet watch run
+
+
+Migrations:
+1)	$ dotnet add package Pomelo.EntityFrameworkCore.MySql -v 2.2.0
+2)	$ dotnet ef migrations add YourMigrationName
+3)	Apply it to the database!
+	$ dotnet ef database update
+
+
+
+Notes from 20191010
+entity setup and create actual database and create database w/o sql.
+
+1.	dotnet add package Pomemlo.EntityFramework thinggggggyyyyyyy
+1.5	dotnet addd package (from 
+2.	Add MyContext.cs in our models
+	namespace blablabla.Models
+	{
+		blablabla in platform
+	}
+3.	Change the startup.cs according to platform
+4.	Update HomeController according to platform	
+5.	Work on models
+	- public DbSet<DomesticatedAnimal> DomesticatedAnimals { get; set; }  // addedtowards bot
+6.	Now create in workbench
+	-- mimic table to public class in .cs
+	== mimic the column name and add extras(like id, updated at createdat)
+	|| now set the [key] public int etc to inc createdat in the .cs file
+7.	Forward engineer
+8.	Now in controller ==   List<DomesticatedAnimal> AllNotPets = dbContext.DomesticatedAnimals.all()
+

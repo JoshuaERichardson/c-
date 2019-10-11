@@ -1,0 +1,31 @@
+<h1>Add a new dish!</h1>
+<a href= "/">Home</a>
+
+ @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+ @using crudelicious.Models
+ @model Dish
+<form asp-action="ProcessAddDish" asp-controller="Home" method="post">
+    <label asp-for="DishName"></label>
+        <input asp-for="DishName">
+        <span asp-validation-for="DishName"></span>
+        <br>
+    <label asp-for="ChefName"></label>
+        <input asp-for="ChefName">
+        <span asp-validation-for="ChefName"></span>
+        <br>
+    <label asp-for="Tastiness"></label>
+        <select asp-for="Tastiness">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <span asp-validation-for="Tastiness"></span>
+        <br>
+    <label asp-for="Calories"></label>
+        <input asp-for="Calories">
+        <span asp-validation-for="Calories"></span>
+        <br>
+    <input value ="Add Dish" type="submit">
+</form>

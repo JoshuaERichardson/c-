@@ -1,0 +1,21 @@
+<a href="/">Home</a>
+
+<h1>@ViewBag.MyDish.DishName </h1>
+<h3>@ViewBag.MyDish.ChefName </h3>
+<hr>
+
+<br>
+<p>Calories: @ViewBag.MyDish.Calories </p>
+<p>Tastiness: @ViewBag.MyDish.Tastiness </p>
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+ @using crudelicious.Models
+ @model Dish
+ 
+<form asp-action=DeleteDish(@ViewBag.MyDish.DishId) asp-controller="home" method="POST">
+    <input type="submit" value="Delete dish">
+</form>
+
+<form action=@ViewBag.EditMe>
+    <input type="submit" value=Edit>
+</form>
