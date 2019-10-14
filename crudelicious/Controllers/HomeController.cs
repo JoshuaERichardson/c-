@@ -90,7 +90,7 @@ namespace crudelicious.Controllers
                 RetrievedDish.ChefName = dish.ChefName;
                 RetrievedDish.DishName = dish.DishName;
                 RetrievedDish.Calories = dish.Calories;
-                RetrievedDish.Tastiness = dish.Tastiness;
+                RetrievedDish.Tastiness = dish.Tastiness
                 RetrievedDish.UpdatedAt = DateTime.Now;
                 dbContext.SaveChanges();
                 return RedirectToAction("Index");

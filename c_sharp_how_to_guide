@@ -1,4 +1,4 @@
-New Project?
+🤯️🤯️🤯️New Project?🤯️🤯️🤯️
 1) dotnet new mvc --no-https
 
 
@@ -12,7 +12,7 @@ New Project?
 
 
 
-Add Database?
+🤯️🤯️🤯️Add Database?🤯️🤯️🤯️
 1) dotnet add package Pomelo.EntityFrameworkCore.MySql -v 2.2.0
 2) in Models folder:
 	new file: YourContext.cs and add:
@@ -47,6 +47,7 @@ namespace YourNamespace.Models
     }   
 
 delete:
+	services.Configure<CookiePolicyOptions>(options =>
 	{
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
                 options.CheckConsentNeeded = context => true;
@@ -62,6 +63,7 @@ delete:
     
     using System.ComponentModel.DataAnnotations;
     using System;
+    using System.ComponentModel.DataAnnotations.Schema; <----- if comparing passwords or other fields
     namespace MyProject.Models
     {
         public class User
@@ -101,10 +103,10 @@ namespace MyProject.Controllers
 {
     public class HomeController : Controller
     {
-        private MyContext dbContext;
+        private MyContext dbContext;              <------add
      
         // here we can "inject" our context service into the constructor
-        public HomeController(MyContext context)
+        public HomeController(MyContext context)   <-------add
         {
             dbContext = context;
         }
@@ -113,7 +115,7 @@ namespace MyProject.Controllers
         [Route("")]
         public IActionResult Index()
         {
-            List<User> AllUsers = dbContext.Users.ToList();
+            List<User> AllUsers = dbContext.Users.ToList();       <------ how to grab all
             
             return View();
         }
@@ -122,7 +124,7 @@ namespace MyProject.Controllers
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 6) Securing Your Connection String
-In appsettings.json include the following, changing your port, userid, password and database as needed:
+In appsettings.json include the following, changing your port, userid, password and database as needed below Allowed Hosts while adding a comma:
 
 ////////////////////////////////////////////////////
 {
@@ -143,8 +145,7 @@ public class Startup
     // This public getter will be how you access the data from appsettings.json
     // To access the connection string itself, you would use the following:
     // Configuration["DBInfo:ConnectionString"]
-    public IConfiguration Configuration {get;}           <------------ add
-    
+    public IConfiguration Configuration {get;}       
     // Here we will "inject" the default IConfiguration service, which will bind to appsettings.json by default
     // and then assign it to the Configuration property.  This happens at the startup of our application.
     public Startup(IConfiguration configuration)
@@ -156,12 +157,17 @@ public class Startup
     // credentials to MySQL
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddDbContext<MyContext>(options => options.UseMySql(Configuration["DBInfo:ConnectionString"]));         < --------------add
+        services.AddDbContext<MyContext>(options => options.UseMySql(Configuration["DBInfo:ConnectionString"])); <------add
         // Add other services
     }
 }
 
 
+8)  Make a migration folder.  Run in terminal:
+$ dotnet ef migrations add YourMigrationName
+
+9)  Perform the migrations:
+dotnet ef database update
 
 
 
@@ -174,7 +180,7 @@ public class Startup
 
 
 
-Add a form?
+🤯️🤯️🤯️Add a form?🤯️🤯️🤯️
 
 1) In HTML
 	<form asp-action="MethodName" asp-controller="Home" method="post">

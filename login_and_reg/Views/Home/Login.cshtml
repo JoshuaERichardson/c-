@@ -1,0 +1,18 @@
+<h1>Login to this Cool Site!</h1>
+@model login_and_reg.Models.LoginUser
+<form asp-action="ProcessLogin" asp-controller="Home">
+    <p>
+        <label asp-for="Email"></label>
+        <input asp-for="Email">
+        <span asp-validation-for="Email"></span>
+    </p>
+    <p>
+        <label asp-for="Password"></label>
+        <input asp-for="Password">
+        <span asp-validation-for="Password"></span>
+    </p>
+  <input type="submit" value="Login">
+
+
+
+</form>

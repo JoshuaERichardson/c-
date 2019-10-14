@@ -1,0 +1,25 @@
+<h1><a href="/">Chefs</a> | Dishes</h1>
+<p><a href="/dishes/new">Add a Dish</a></p>
+
+<h3>Yum, take a look at our tasty dishes!</h3>
+<hr>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Chef</th>
+        <th>Tastiness</th>
+        <th>Calories</th>
+    </tr>
+    @model List<Dish>
+    @foreach(var dish in Model)
+    {
+    <tr>
+        <td>@dish.DishName</td>
+        <td>@dish.Creator.FirstName @dish.Creator.LastName</td>
+        <td>@dish.Tastiness stars out of 5</td>
+        <td>@dish.Calories</td>
+        <!-- Add Scroller! -->
+    </tr>
+    }
+
+</table>
