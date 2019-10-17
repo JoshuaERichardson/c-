@@ -1,0 +1,11 @@
+
+<div class="wrapper">
+    <h1>Here are the awesome quotes!</h1>
+    @foreach (var Quote in ViewBag.Quote)
+    {
+        <div class="quotes">
+            <p>"@Quote[@"Content"]"</p>
+            <p class="creator">- @Quote["Creator"] at </p>
+        </div>
+    }
+</div>

@@ -1,0 +1,4 @@
+Need:
+    Session in login.
+
+    1 to many for user to account

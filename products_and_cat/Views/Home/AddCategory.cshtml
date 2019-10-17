@@ -1,0 +1,13 @@
+<h3> @ViewBag.oneProduct.Name Categories</h3>
+
+<ol>
+@foreach(var cat in @ViewBag.productWithAssociationAndCategory.ProductToCat)
+{
+<li>@cat.Category.Name</li>
+}
+</ol>
+
+
+<hr>
+<hr>
+

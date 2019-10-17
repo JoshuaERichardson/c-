@@ -1,0 +1,11 @@
+/Users/jeverett/Desktop/FirstCSharp/obj/Debug/netcoreapp2.2/FirstCSharp.csprojAssemblyReference.cache
+/Users/jeverett/Desktop/FirstCSharp/obj/Debug/netcoreapp2.2/FirstCSharp.csproj.CoreCompileInputs.cache
+/Users/jeverett/Desktop/FirstCSharp/obj/Debug/netcoreapp2.2/FirstCSharp.AssemblyInfoInputs.cache
+/Users/jeverett/Desktop/FirstCSharp/obj/Debug/netcoreapp2.2/FirstCSharp.AssemblyInfo.cs
+/Users/jeverett/Desktop/FirstCSharp/bin/Debug/netcoreapp2.2/FirstCSharp.deps.json
+/Users/jeverett/Desktop/FirstCSharp/bin/Debug/netcoreapp2.2/FirstCSharp.runtimeconfig.json
+/Users/jeverett/Desktop/FirstCSharp/bin/Debug/netcoreapp2.2/FirstCSharp.runtimeconfig.dev.json
+/Users/jeverett/Desktop/FirstCSharp/bin/Debug/netcoreapp2.2/FirstCSharp.dll
+/Users/jeverett/Desktop/FirstCSharp/bin/Debug/netcoreapp2.2/FirstCSharp.pdb
+/Users/jeverett/Desktop/FirstCSharp/obj/Debug/netcoreapp2.2/FirstCSharp.dll
+/Users/jeverett/Desktop/FirstCSharp/obj/Debug/netcoreapp2.2/FirstCSharp.pdb

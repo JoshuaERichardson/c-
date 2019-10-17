@@ -1,0 +1,25 @@
+ @model User
+ <div style="display:inline-block; margin:5%;" >
+        <table>
+            <tr><td></td><td><h3>Login</h3></td></tr>
+            <form asp-action="ProcessLogin" asp-controller="Home" method="POST">
+                <tr>
+                    <td>
+                        <label asp-for="CheckEmail"></label>
+                    </td>
+                    <td>
+                        <input asp-for="CheckEmail">
+                        <span asp-validation-for="CheckEmail"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label asp-for="CheckPassword"></label>
+                    </td>
+                    <td>
+                        <input asp-for="CheckPassword">
+                        <span asp-validation-for="CheckPassword"></span>
+                </tr>
+                <tr><td></td><td><input type="Submit" value="Sign in "</td></tr>
+            </form>
+    </div>

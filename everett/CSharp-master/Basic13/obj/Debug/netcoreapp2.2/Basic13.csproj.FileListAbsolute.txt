@@ -1,0 +1,4 @@
+/Users/jeverett/Desktop/CSharp/Basic13/obj/Debug/netcoreapp2.2/Basic13.csprojAssemblyReference.cache
+/Users/jeverett/Desktop/CSharp/Basic13/obj/Debug/netcoreapp2.2/Basic13.csproj.CoreCompileInputs.cache
+/Users/jeverett/Desktop/CSharp/Basic13/obj/Debug/netcoreapp2.2/Basic13.AssemblyInfoInputs.cache
+/Users/jeverett/Desktop/CSharp/Basic13/obj/Debug/netcoreapp2.2/Basic13.AssemblyInfo.cs

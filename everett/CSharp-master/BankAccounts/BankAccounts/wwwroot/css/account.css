@@ -1,0 +1,12 @@
+form {
+    width: 200px;
+}
+
+.btn {
+    margin-bottom: 30px;
+}
+
+.balance {
+    border: 2px solid black;
+    padding: 5px;
+}

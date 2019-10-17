@@ -1,0 +1,36 @@
+<h1>Products | <a href="/categories">Categories</a></h1>
+<h3>New Product</h3>
+@model Product
+<div class="newProductForm">
+    <form asp-action="ProcessNewProduct"  asp-controller="Home" method="post">
+        <table>
+        <tr>
+        <td><label asp-for="Name"></label></td>
+            <td><input asp-for="Name"></td>
+            <td><span asp-validation-for="Name"></span></td>
+        </tr>
+        <tr>
+        <td><label asp-for="Description"></label></td>
+            <td><textarea asp-for="Description"></textarea></td>
+            <td><span asp-validation-for="Description"></span></td>
+        </tr>
+        <tr>
+        <td><label asp-for="Price"></label></td>
+            <td><input asp-for="Price"></td>
+            <td><span asp-validation-for="Price"></span></td>
+        </tr>
+        <tr><td></td><td><input type="submit" value="New Products"></td></tr>
+        </table>
+    </form>
+    <div asp-validation-summary="All"></div>
+</div>
+
+
+<div class="viewAllProducts">
+    <h3>Existing Products</h3>
+    @foreach(var product in ViewBag.AllProducts)
+    {
+    <p><a href="products/@product.ProductId"> @product.Name </a></p>
+    }
+
+</div>

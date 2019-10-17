@@ -1,0 +1,9 @@
+@{
+    @using viewModelFun.Models
+    @model int[]
+    <h1 class="text-center">Here are some numbers:</h1>
+    @foreach(var num in Model)
+    {
+            <p class="text-center">@num</p>
+    }
+}

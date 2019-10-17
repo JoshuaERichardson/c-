@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="toolbar">
+    <p>
+        Dashboard | 
+        <a href="/products">Products | </a>
+        <a href="/orders">Orders | </a>
+        <a href="/customers">Customers | </a>
+        <a href="/settings">Settings</a>
+    </p>
+</div>
+<partial name="Index-products"></partial>
+<partial name="Index-Orders"></partial>
+<partial name="Index-Customers"></partial>

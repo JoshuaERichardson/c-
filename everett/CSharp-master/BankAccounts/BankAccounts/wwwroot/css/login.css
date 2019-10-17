@@ -1,0 +1,15 @@
+.wrapper {
+    margin-top: 30px;
+}
+
+form {
+    width: 400px;
+}
+
+h1, a {
+    display: inline-block;
+}
+
+a {
+    margin-left: 100px;
+}

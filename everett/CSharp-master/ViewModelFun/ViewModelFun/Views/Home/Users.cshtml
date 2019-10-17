@@ -1,0 +1,7 @@
+@using viewModelFun.Models
+@model List<MyModel>
+    <h4 class="text-center">Here are some Users!</h4>
+    @foreach(var name in Model)
+    {
+        <p class="text-center">@name.FirstName @name.LastName</p>
+    }

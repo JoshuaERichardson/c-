@@ -1,0 +1,38 @@
+<div class="toolbar">
+    <p>
+        <a href="/">Dashboard | </a>
+        <a href="/products">Products | </a>
+        <p>Orders | </p>
+        <a href="/customers">Customers | </a>
+        <a href="/settings">Settings</a>
+    </p>
+</div>
+
+@model Product
+<form asp-action="processNewOrder" asp-controller="home" method="post">
+    <label asp-for="Name"></label>
+        <input asp-for="Name">
+        <span asp-validation-for="Name"></span>
+    <label asp-for="Quantity"></label>
+        <input asp-for="Quantity">
+        <span asp-validation-for="Quantity"></span>
+    <label asp-for="Name"></label>
+        <input asp-for="Name">
+        <span asp-validation-for="Name"></span>
+    <input type="submit" value="order">
+</form>
+
+<table>
+    <tr>
+        <th>Customer Name</th>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Date</th>
+    </tr>
+    <tr>
+        <td>PLACEHOLDER</td>
+        <td>PLACEHOLDER</td>
+        <td>PLACEHOLDER</td>
+        <td>PLACEHOLDER</td>
+    </tr>
+</table>

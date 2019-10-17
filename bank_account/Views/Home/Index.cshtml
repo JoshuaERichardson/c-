@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<a href="/login">Login</a>
+@model login_and_reg.Models.User
+<h1>Register to this cool site!</h1>
+<form asp-action="ProcessRegister" asp-controller="Home" method="POST">
+    <p>
+        <label asp-for="FirstName"></label>
+        <input asp-for="FirstName">
+        <span asp-validation-for="FirstName"></span>
+    </p>
+    <p>
+        <label asp-for="LastName"></label>
+        <input asp-for="LastName">
+        <span asp-validation-for="LastName"></span>
+    </p>
+    <p>
+        <label asp-for="Email"></label>
+        <input asp-for="Email">
+        <span asp-validation-for="Email"></span>
+    </p>
+    <p>
+        <label asp-for="Password"></label>
+        <input asp-for="Password">
+        <span asp-validation-for="Password"></span>
+    </p>
+    <p>
+        <label asp-for="Confirm"></label>
+        <input asp-for="Confirm">
+        <span asp-validation-for="Confirm"></span>
+    </p>
+    <input type="submit" value="Register">
+</form>
