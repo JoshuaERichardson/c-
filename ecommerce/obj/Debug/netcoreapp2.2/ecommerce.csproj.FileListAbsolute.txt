@@ -34,3 +34,4 @@
 /home/mole/Desktop/code_dojo/c_sharp/ecommerce/obj/Debug/netcoreapp2.2/Razor/Views/Home/Index-products.g.cshtml.cs
 /home/mole/Desktop/code_dojo/c_sharp/ecommerce/obj/Debug/netcoreapp2.2/Razor/Views/Home/Orders.g.cshtml.cs
 /home/mole/Desktop/code_dojo/c_sharp/ecommerce/obj/Debug/netcoreapp2.2/Razor/Views/Home/Products.g.cshtml.cs
+/home/mole/Desktop/code_dojo/c_sharp/ecommerce/obj/Debug/netcoreapp2.2/Razor/Views/Home/Orders-Customer.g.cshtml.cs

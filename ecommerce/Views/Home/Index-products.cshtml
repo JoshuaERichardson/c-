@@ -1,1 +1,8 @@
-<h1>PLACEHOLDER</h1>
+@model Product
+
+@foreach(var product in ViewBag.FiveProducts)
+{
+    <img src="@product.Image">
+    <p>@product.Name</p>
+    <p>(@product.Quantity left)</p>
+}

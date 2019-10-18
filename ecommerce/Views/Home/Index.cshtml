@@ -11,6 +11,20 @@
         <a href="/settings">Settings</a>
     </p>
 </div>
-<partial name="Index-products"></partial>
+
+@foreach(var product in ViewBag.FiveProducts)
+{
+    <img src="@product.Image" style="height:150px; width:150px; display:inline-block;">
+    <p>@product.Name</p>
+    <p>(@product.Quantity left)</p>
+}
+
+<h3>Recent Orders</h3>
+@foreach (var order in ViewBag.ThreeOrders)
+{
+    <p>@order.Customer.Name purchased @order.QuantityOrdered @order.Product.Name  </p>
+}
+
+
 <partial name="Index-Orders"></partial>
 <partial name="Index-Customers"></partial>

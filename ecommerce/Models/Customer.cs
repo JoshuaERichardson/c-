@@ -12,8 +12,8 @@ namespace ecommerce.Models
         [Required]
         [MinLength(3)]
         public string Name { get; set; }        
-        public DateTime CreatedAt {get;set;} = DateTime.Now;
-        public DateTime UpdatedAt {get;set;} = DateTime.Now;
+        public DateTime CreatedAt { get;set; } = DateTime.Now;
+        public DateTime UpdatedAt { get;set; } = DateTime.Now;
         public List<Order> CustomerOrders { get; set; }
     }
 }
