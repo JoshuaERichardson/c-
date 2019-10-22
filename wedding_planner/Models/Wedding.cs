@@ -11,16 +11,8 @@ namespace wedding_planner.Models
             [Key]
             public int WeddingId { get; set; }
             [Required]
-            [MinLength(2)]
-            public string WOne { get; set; }
-            [Required]
-            [MinLength(2)]
-            public string WTwo { get; set; }
-            [Required]
-            [DataType(DataType.Date)]
-            public DateTime Date { get; set; }
-            [DataType(DataType.PostalCode)]
-            public string Address { get; set; }
+            [MinLength(5)]
+            public string Idea { get; set; }
             [Required]
             public string Owner { get; set; }
             // Many to many setup as follows

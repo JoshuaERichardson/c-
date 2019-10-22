@@ -1,0 +1,68 @@
+@model Wedding
+<div class"dashboardDiv">
+    <div>
+        <h2 style="display: inline-block;">Welcome To the Wedding Planner</h2>
+        <a href="/" style="display:inline-block;">Logout</a>
+    </div>
+
+    <table class="dashboardTable">
+        <tr>
+            <th>Wedding</th>
+            <th>Date</th>
+            <th>Guest</th>
+            <th>Action</th>
+        </tr>
+        @foreach(var wedding in @ViewBag.AllWeddings)
+        {
+            <tr> 
+                <td>
+                    <a href="wedding/@wedding.WeddingId">
+                        @wedding.WOne and @wedding.WTwo
+                    </td>
+                <td>@wedding.Date</td>
+                    @if(5<7)
+                    {
+                        int count = 0;
+                        @foreach(var i in wedding.WeddingToJoin)
+                            {
+                                count++;
+                            }
+                        <td>@count</td>
+                    }
+                @if(wedding.Owner == @ViewBag.VerifyLoggedIn)
+                {
+                    <td>
+                        <a href="/processDeleteWedding/@wedding.WeddingId">Delete</a>
+                    </td>
+                }
+                else
+                {
+                    bool attending = false;
+                    @foreach(UserWedding guest in wedding.WeddingToJoin)
+                    {
+                        @if(guest.UserId == @ViewBag.GrabbedUser.UserId)
+                        {
+                            attending = true;
+                        }
+                    }
+                    @if(attending == false)
+                    {
+                        <td>
+                            <a href="processAddUserToWedding/@wedding.WeddingId/@ViewBag.VerifyLoggedIn">RSVP</a>
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            <a href="processRemoveUserFromWedding/@wedding.WeddingId/@ViewBag.VerifyLoggedIn">Un-RSVP</a>
+                        </td>
+                    }
+                }
+            </tr>
+        }
+    </table>
+</div>
+
+    <form action="/new">
+        <input type="submit" value="New Wedding">
+    </form>

@@ -12,10 +12,14 @@ namespace wedding_planner.Models
         public int UserId { get; set; }
         [Required]
         [MinLength(2)]
-        public string FirstName { get; set; }
+        public string Name { get; set; }
+
+
         [Required]
         [MinLength(2)]
-        public string LastName { get; set; }
+        public string Alias { get; set; }
+
+
         [Required]
         [EmailAddress]
         public string Email { get; set; }
@@ -30,11 +34,14 @@ namespace wedding_planner.Models
         //Will not be mapped to users table as follows!
         [NotMapped]
         [DataType(DataType.Password)]
+        [Compare("Password")]
+        [Display(Name="Password")]
         public string Confirm { get; set; }
         [NotMapped]
-        // for Login
+        [Display(Name="Email")]
         public string CheckEmail { get; set; }
         [NotMapped]
+        [Display(Name="Password")]
         [DataType(DataType.Password)]
         public string CheckPassword { get; set; }
 

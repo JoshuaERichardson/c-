@@ -22,15 +22,15 @@ namespace wedding_planner.Migrations
                     b.Property<int>("UserId")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("Alias")
+                        .IsRequired();
+
                     b.Property<DateTime>("CreatedAt");
 
                     b.Property<string>("Email")
                         .IsRequired();
 
-                    b.Property<string>("FirstName")
-                        .IsRequired();
-
-                    b.Property<string>("LastName")
+                    b.Property<string>("Name")
                         .IsRequired();
 
                     b.Property<string>("Password")
@@ -66,17 +66,10 @@ namespace wedding_planner.Migrations
                     b.Property<int>("WeddingId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Address");
-
-                    b.Property<DateTime>("Date");
+                    b.Property<string>("Idea")
+                        .IsRequired();
 
                     b.Property<string>("Owner")
-                        .IsRequired();
-
-                    b.Property<string>("WOne")
-                        .IsRequired();
-
-                    b.Property<string>("WTwo")
                         .IsRequired();
 
                     b.HasKey("WeddingId");

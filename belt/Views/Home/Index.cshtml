@@ -1,0 +1,89 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="signin">
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+    <div style="display:inline-block; margin:5%;">
+    
+    @model User
+        <form asp-action="ProcessNewuser" asp-controller="Home" method="POST">
+            <table>
+                <tr><td></td><td>  <h3>Register</h3>   </td></tr>
+                <tr>
+                    <td>
+                        <label asp-for="FirstName"></label>
+                    </td>
+                    <td>
+                        <input asp-for="FirstName">
+                    </td>
+                    <tr>
+                        <td></td><td>
+                        <span asp-validation-for="FirstName"></span>
+                        </td>
+                    </tr>
+                </tr>
+                <tr>
+                    <td>
+                        <label asp-for="LastName"></label>
+                    </td>
+                    <td>
+                        <input asp-for="LastName">
+                    </td>
+                    <tr>
+                        <td></td><td>
+                        <span asp-validation-for="LastName"></span>
+                        </td>
+                    </tr>
+                </tr>
+                <tr>
+                    <td>
+                        <label asp-for="Email"></label>
+                    </td>
+                    <td>
+                        <input asp-for="Email">
+                    </td>
+                    <tr>
+                        <td></td><td>
+                        <span asp-validation-for="Email"></span>
+                        </td>
+                    </tr>
+                </tr>
+                <tr>
+                    <td>
+                        <label asp-for="Password"></label>
+                    </td>
+                    <td>
+                        <input asp-for="Password">
+                    </td>
+                    <tr>
+                        <td></td><td>
+                        <span asp-validation-for="Password"></span>
+                        </td>
+                    </tr>
+                </tr>
+                <tr>
+                    <td>
+                        <label asp-for="Confirm"></label>
+                    </td>
+                    <td>
+                        <input asp-for="Confirm">
+                    </td>
+                    <tr>
+                        <td></td><td>
+                        <span asp-validation-for="Confirm"></span>
+                        </td>
+                    </tr>
+                </tr>    
+                <tr><td></td><td><input value="Register" type="submit"></td></tr>
+            </table>
+        </form>
+        
+    <partial name="IndexLoginPartial"/>
+
+   
+</div>

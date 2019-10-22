@@ -1,11 +1,23 @@
 
-<div class="weddingDiv">
-    <div class="weddingDivHeader">
-        <h1>@ViewBag.CurrentWedding.WOne and @ViewBag.CurrentWedding.WTwo</h1>
-        <a href="/dashboard">Dashboard</a>
-        <a href="/">Logout</a>
-    </div>
-    <p>Date: @ViewBag.ThisDate <p>
-    <h3>Guests:</h3>
 
-</div>
+<p>
+    @ViewBag.CurrentIdea.Owner says: @ViewBag.CurrentIdea.Idea
+</p>
+
+<p>People who like this post:</p>
+<table>
+    <tr>
+        <th>Alias</th>
+        <th>Name</th>
+    </tr>
+    @foreach(var i in @ViewBag.CurrentIdea.WeddingToJoin)
+    {
+        <tr>
+            <td>
+                <a href="/users/@i.User.Alias">
+                @i.User.Alias
+                </a></td>
+            <td>@i.User.Name</td>
+        </tr>
+    }
+</table>

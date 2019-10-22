@@ -31,13 +31,41 @@ namespace wedding_planner.Controllers
         public IActionResult ProcessNewUser(User newUser)
         {
             // Check to see if contain a FirstName.  If not look at the login
-            if(newUser.FirstName !=  null || newUser.LastName != null)
+            if(newUser.Name !=  null && newUser.Alias != null)
             {
                 //Start with if everything was entered correctly
                 if(ModelState.IsValid)
-                    // If the email is already used throw an error
+                {
+                    // check to make sure name is all letters or a space
+                    foreach(char c in newUser.Name)
                     {
-                    // First grab all the users
+                        // need to fix the whitespace
+                        if(!Char.IsLetter(c))
+                        {
+                            if(!Char.IsWhiteSpace(c))
+                            {
+                            ModelState.AddModelError("Name", "Name must be only letters or spaces");
+                            return View("Index");
+                            }
+                        }
+                    }
+                    foreach(char c in newUser.Alias)
+                    {
+                        
+                        // need to fix the logins
+                        if(!Char.IsLetter(c))
+                        {
+                            if(!Char.IsDigit(c))
+                            {
+                              ModelState.AddModelError("Alias", "Alias must be only letters or numbers");
+                              return View("Index");
+                            }
+                        }
+                    }
+                    
+                    // If the email is already used throw an error
+                    
+                        // First grab all the users
                         List<User> AllUsers = dbContext.Users.ToList();
                         // Now see if the email in the form already exists in AllUsers
                         foreach(var user in AllUsers)
@@ -47,7 +75,13 @@ namespace wedding_planner.Controllers
                                 ModelState.AddModelError("Email", "Email already in use!");
                                 return View("Index");
                             }
+                            if (user.Alias == newUser.Alias)
+                            {
+                                ModelState.AddModelError("Alias", "Alias already in use!");
+                                return View("Index");
+                            }
                         }
+                      
                         // Ok the email is unique and there are no errors.  Let's Encrypt their password!
                         PasswordHasher<User> Hasher = new PasswordHasher<User>();
                         newUser.Password = Hasher.HashPassword(newUser, newUser.Password);
@@ -56,8 +90,8 @@ namespace wedding_planner.Controllers
                         // Now Save the damn changes!
                         dbContext.SaveChanges();
                         // Now add them into session before redirecting them to the dashboard.
-                        HttpContext.Session.SetString("UserEmail", newUser.Email);
-                        return RedirectToAction("Dashboard");
+                        HttpContext.Session.SetString("UserEmail", newUser.Alias);
+                        return RedirectToAction("New");
                     }
             }
                 return View("Index");
@@ -83,8 +117,8 @@ namespace wedding_planner.Controllers
                             ModelState.AddModelError("Password", "Email does not match");
                         }
                         // Now we know the password matched and the email existed.  Add them to session and redirect
-                        HttpContext.Session.SetString("UserEmail", oldUser.CheckEmail);
-                        return RedirectToAction("Dashboard");
+                        HttpContext.Session.SetString("UserEmail", user.Alias);
+                        return RedirectToAction("New");
                     }
                 }
             return View("Index");
@@ -95,7 +129,15 @@ namespace wedding_planner.Controllers
 
 
 
-
+        [HttpGet("users/{UserAlias}")]
+        public IActionResult UserView(string UserAlias)
+        {
+            //grab the one user passed
+            User GrabbedUser = dbContext.Users
+                .FirstOrDefault(u => u.Alias == UserAlias);
+            @ViewBag.GrabbedUser = GrabbedUser;
+            return View();
+        }
 
 
 
@@ -140,7 +182,7 @@ namespace wedding_planner.Controllers
             // and of course save
             dbContext.SaveChanges();
             // Send back to dashboard
-            return Redirect("/dashboard");
+            return Redirect("/bright_ideas");
         }
         [HttpGet("processAddUserToWedding/{weddingId}/{userEmail}")]
         public IActionResult ProcessAddUserToWedding(int weddingId, string userEmail)
@@ -151,7 +193,7 @@ namespace wedding_planner.Controllers
                 .ThenInclude(join => join.User)
                 .FirstOrDefault(wedding => wedding.WeddingId == weddingId);
             // Grab the UserId
-            var GrabbedUser = dbContext.Users.FirstOrDefault(user => user.Email == userEmail);
+            var GrabbedUser = dbContext.Users.FirstOrDefault(user => user.Alias == userEmail);
             // Create a new instance of UserWedding
             UserWedding TEMP = new UserWedding();
             // Populate the new instance            
@@ -160,7 +202,7 @@ namespace wedding_planner.Controllers
             // Holy hell we can add it to the table now!
             dbContext.UsersWeddings.Add(TEMP);
             dbContext.SaveChanges();
-            return Redirect("/dashboard");
+            return Redirect("/bright_ideas");
         }
         [HttpGet("processRemoveUserFromWedding/{weddingId}/{userEmail}")]
         public IActionResult ProcessRemoveUserFromWedding(int weddingId, string userEmail)
@@ -176,7 +218,7 @@ namespace wedding_planner.Controllers
             var GrabbedRow = dbContext.UsersWeddings.FirstOrDefault(user => user.UserId == GrabbedUser.UserId);
             dbContext.UsersWeddings.Remove(GrabbedRow);
             dbContext.SaveChanges();
-            return Redirect("/dashboard");
+            return Redirect("/bright_ideas");
         }
 
 
@@ -187,7 +229,7 @@ namespace wedding_planner.Controllers
 
 
 
-        [HttpGet("new")]
+        [HttpGet("bright_ideas")]
         public IActionResult New()
         {
             // First ensure that someone is in session
@@ -196,7 +238,18 @@ namespace wedding_planner.Controllers
             {
                 // Grab session and throw in ViewBag to assign the owner property
                 @ViewBag.VerifyLoggedIn = VerifyLoggedIn;
+                
+
+                // Grab all Ideas to loop through
+                List<Wedding> AllIdeas = dbContext.Weddings
+                    .Include(i => i.WeddingToJoin)
+                    .ThenInclude(i => i.User)
+                    .ToList();
+                @ViewBag.AllIdeas = AllIdeas;
+
+                List<UserWedding> AllAssociations = dbContext.UsersWeddings.ToList();
                 return View();
+
             }
             // Oops someone isn't in session?
             return View("Index");
@@ -208,17 +261,12 @@ namespace wedding_planner.Controllers
         {
             if(ModelState.IsValid)
             {
-                //Verify that the date of the wedding is in the future!
-                if(newWedding.Date < DateTime.Now)
-                {
-                    ModelState.AddModelError("Date", "The date of the wedding must be in the future.");
-                    return View("New");
-                }
                 //Store in the database
+                newWedding.Idea = $"{newWedding.Idea}";
                 dbContext.Add(newWedding);
                 //Never forget to save!
                 dbContext.SaveChanges();
-                return Redirect($"/wedding/{newWedding.WeddingId}");
+                return Redirect("/bright_ideas");
             }
             return View("New");
         }
@@ -239,7 +287,7 @@ namespace wedding_planner.Controllers
 
 
 
-        [HttpGet("wedding/{WeddingId}")]
+        [HttpGet("bright_ideas/{WeddingId}")]
         public IActionResult Wedding(int WeddingId)
         {
             //First Make sure there is a user logged in
@@ -247,14 +295,18 @@ namespace wedding_planner.Controllers
             if(VerifyLoggedIn != null)
             {
                 // Let's grab this specific wedding to make sure we can display the right information
-                Wedding CurrentWedding = dbContext.Weddings.FirstOrDefault(w => w.WeddingId == WeddingId);
-                // Format the date to not look like shit
-                DateTime thisDate = CurrentWedding.Date;
-                string ThisDate = thisDate.ToLongDateString();
-                ViewBag.ThisDate = ThisDate;
-                // Let's be able to use it in our .cshtml
-                ViewBag.CurrentWedding = CurrentWedding;
+                Wedding CurrentIdea = dbContext.Weddings.FirstOrDefault(w => w.WeddingId == WeddingId);
 
+                // Let's be able to use it in our .cshtml
+                ViewBag.CurrentIdea = CurrentIdea;
+
+                //Link the wedding to see the guests
+                var WeddingWithJoin = dbContext.Weddings
+                    .Include(j => j.WeddingToJoin)
+                    .ThenInclude(j => j.User)
+                    .FirstOrDefault(w => w.WeddingId == WeddingId);
+                // Now save the joined wedding in ViewBag
+                ViewBag.WeddingWithJoin = WeddingWithJoin;
 
                 return View();
             }

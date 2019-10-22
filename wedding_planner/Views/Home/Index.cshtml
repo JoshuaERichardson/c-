@@ -3,12 +3,11 @@
 }
 <div class="signin">
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome To Bright Ideas</h1>
 </div>
 
 
-    <div style="display:inline-block; margin:5%;">
+<div style="display:inline; margin:15%;">
     
     @model User
         <form asp-action="ProcessNewuser" asp-controller="Home" method="POST">
@@ -16,27 +15,27 @@
                 <tr><td></td><td>  <h3>Register</h3>   </td></tr>
                 <tr>
                     <td>
-                        <label asp-for="FirstName"></label>
+                        <label asp-for="Name"></label>
                     </td>
                     <td>
-                        <input asp-for="FirstName">
+                        <input asp-for="Name">
                     </td>
                     <tr>
                         <td></td><td>
-                        <span asp-validation-for="FirstName"></span>
+                        <span asp-validation-for="Name"></span>
                         </td>
                     </tr>
                 </tr>
                 <tr>
                     <td>
-                        <label asp-for="LastName"></label>
+                        <label asp-for="Alias"></label>
                     </td>
                     <td>
-                        <input asp-for="LastName">
+                        <input asp-for="Alias">
                     </td>
                     <tr>
                         <td></td><td>
-                        <span asp-validation-for="LastName"></span>
+                        <span asp-validation-for="Alias"></span>
                         </td>
                     </tr>
                 </tr>
@@ -82,8 +81,8 @@
                 <tr><td></td><td><input value="Register" type="submit"></td></tr>
             </table>
         </form>
+</div>
         
     <partial name="IndexLoginPartial"/>
 
-   
 </div>

@@ -1,0 +1,18 @@
+
+<div class="weddingDiv">
+    <div class="weddingDivHeader">
+        <h1>@ViewBag.CurrentWedding.WOne and @ViewBag.CurrentWedding.WTwo</h1>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/">Logout</a>
+    </div>
+    <p>Date: @ViewBag.ThisDate <p>
+    <h3>Guests:</h3>
+
+@model Wedding
+    <ol>
+        @foreach(var i in ViewBag.WeddingWithJoin.WeddingToJoin)
+        {
+            <li>@i.User.FirstName  @i.User.LastName</li>
+        }
+    </ol>
+</div>

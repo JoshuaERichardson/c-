@@ -32,3 +32,4 @@
 /home/mole/Desktop/code_dojo/c_sharp/wedding_planner/obj/Debug/netcoreapp2.2/wedding_planner.Views.pdb
 /home/mole/Desktop/code_dojo/c_sharp/wedding_planner/obj/Debug/netcoreapp2.2/wedding_planner.csproj.CopyComplete
 /home/mole/Desktop/code_dojo/c_sharp/wedding_planner/obj/Debug/netcoreapp2.2/Razor/Views/Home/IndexLoginPartial.g.cshtml.cs
+/home/mole/Desktop/code_dojo/c_sharp/wedding_planner/obj/Debug/netcoreapp2.2/Razor/Views/Home/UserView.g.cshtml.cs

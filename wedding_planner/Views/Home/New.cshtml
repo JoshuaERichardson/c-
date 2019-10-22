@@ -1,62 +1,76 @@
 @model Wedding
 <div class="newWeddingDiv">
     <div class="newWeddingHeader">
-        <h2 style="display:inline-block;">Plan Your Wedding</h2>
-        <a href="/dashboard" style="display:inline-block;">Dashboard</a>
-        <a href="/" style="display:inline-block;">Logout</a>
+        <h2 style="display:inline-block;">Submit a bright idea</h2>
+        
     </div>
     <form asp-action="processNewWedding" asp-controller="home" method="POST">
         <table>
             <tr>
                 <td>
-                    <label asp-for="WOne"></label>
+                    <label asp-for="Idea"></label>
                 </td>
                 <td>
-                    <input asp-for="WOne">
+                    <textarea asp-for="Idea"></textarea>
                 </td>
             </tr>
                 <tr>
-                    <td></td><td><span asp-validation-for="WOne"></span></td>
-                </tr>
-            <tr>
-                <td>
-                    <label asp-for="WTwo"></label>
-                </td>
-                <td>
-                    <input asp-for="WTwo">
-                </td>
-            </tr>
-                <tr>
-                    <td></td><td><span asp-validation-for="WTwo"></span></td>
-                </tr>
-            <tr>
-                <td>
-                    <label asp-for="Date"></label>
-                </td>
-                <td>
-                    <input asp-for="Date">
-                </td>
-            </tr>
-                <tr>
-                    <td></td><td><span asp-validation-for="Date"></span></td>
-                </tr>
-            <tr>
-                <td>
-                    <label asp-for="Address"></label>
-                </td>
-                <td>
-                    <input asp-for="Address">
-                </td>
-            </tr>
-                <tr>
-                    <td></td><td><span asp-validation-for="Address"></span></td>
+                    <td></td><td><span asp-validation-for="Idea"></span></td>
                 </tr>
         <input asp-for="Owner" type="hidden" value="@ViewBag.VerifyLoggedIn">
             <tr>
-                <td></td><td><input type="submit" value="Add"</td>
+                <td></td><td><input type="submit" value="Add Idea!"</td>
             </tr>
         </table>
     </form>
+
+
+
+
+
+
+    <table style = "margin: 35px;">
+    @foreach(var idea in @ViewBag.AllIdeas)
+    {
+        <tr style="margin: 15px;">
+            <td style="margin: 15px;">
+                <a href="/users/@idea.Owner">@idea.Owner </a> says:
+            </td style="margin: 15px;">
+            <td style="border: 1px solid black; max-width: 200px; overflow: scroll; margin: 15px;">
+                @idea.Idea
+            </td>
+            <td style="margin: 15px;">
+                @if(idea.Owner == @ViewBag.VerifyLoggedIn)
+                    {
+                        <a href="/processDeleteWedding/@idea.WeddingId">Delete</a>
+                    }
+            </td>
+        </tr style="margin: 15px;">
+        <tr style="margin: 15px;">
+            <td style="margin: 15px;">
+            </td>
+            <td style="margin: 15px;">
+                <a href="/processAddUserToWedding/@idea.WeddingId/@ViewBag.VerifyLoggedIn">Like</a>
+            </td style="margin: 15px;">
+            <td style="margin: 15px;">
+                @if(5<7)
+                {
+                int count = 0;
+                    @foreach(var i in idea.WeddingToJoin)
+                    {
+                        count++;
+                    }
+                <a href="bright_ideas/@idea.WeddingId">
+                    @count people like this</a>
+                }
+            </td style="margin: 15px;">
+        </tr>
+                    
+            
+            
+        
+    }
+    </table>
 </div>
     <div asp-validation-summary="All">
         <span>Please correct the following errors</span>
